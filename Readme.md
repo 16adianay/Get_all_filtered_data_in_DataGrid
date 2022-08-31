@@ -31,5 +31,4 @@ To implement this functionality, access a bound Store object and pass [loadOptio
 - [getDataSource()](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxDataGrid/Methods/#getDataSource)
 - [DataSource.store()](https://js.devexpress.com/Documentation/ApiReference/Data_Layer/DataSource/Methods/#store)
 
-## More Examples
 
