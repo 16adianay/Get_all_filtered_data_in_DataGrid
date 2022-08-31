@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/22.1.4/css/dx.common.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/22.1.4/css/dx.light.css" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/22.1.4/js/dx.all.js"></script>
+	<script type="text/javascript" src="data.js"></script>
+
+    <script>
+
+		function getFilteredAndSortedData(){
+		  const grid = $('#gridContainer').dxDataGrid("instance");
+		  const filterExpr = grid.getCombinedFilter(true);
+		  const dataSource = grid.getDataSource();
+		  const loadOptions = dataSource.loadOptions();
+
+		  dataSource
+			.store()
+			.load({ filter: filterExpr, sort: loadOptions.sort, group: loadOptions.group })
+			.then((result) => {
+				// your code...
+				console.log(result);
+				alert("check the browser console");
+			});
+		}
+
+		$(() => {
+			$('#gridContainer').dxDataGrid({
+				dataSource: orders,
+				keyExpr: 'ID',
+				columnsAutoWidth: true,
+				showBorders: true,
+				filterRow: {
+				  visible: true
+				},
+				searchPanel: {
+				  visible: true
+				},
+				headerFilter: {
+				  visible: true
+				}
+			});
+		})
+    </script>
+  </head>
+
+  <body>
+    <div>
+      <div id="gridContainer"></div>
+      <button onclick="getFilteredAndSortedData()">
+        Get All Filtered And Sorted Data
+      </button>
+    </div>
+  </body>
+</html>

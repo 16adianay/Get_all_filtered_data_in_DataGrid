@@ -1,0 +1,38 @@
+@page
+@using ASP.Models
+
+<h2>Home</h2>
+<script>
+    function getFilteredAndSortedData(){
+		  const grid = $('#gridContainer').dxDataGrid("instance");
+		  const filterExpr = grid.getCombinedFilter(true);
+		  const dataSource = grid.getDataSource();
+		  const loadOptions = dataSource.loadOptions();
+
+		  dataSource
+			.store()
+			.load({ filter: filterExpr, sort: loadOptions.sort, group: loadOptions.group })
+			.then((result) => {
+				// your code...
+				console.log(result);
+				alert("check the browser console");
+			});
+		}
+</script>
+
+@(Html.DevExtreme().Button().Text("Get All Filtered And Sorted Data").OnClick("getFilteredAndSortedData"))
+
+@(Html.DevExtreme().DataGrid<SampleOrder>().ID("gridContainer")
+    .ShowBorders(true)
+    .DataSource(d => d.Mvc().Controller("SampleData").LoadAction("Get").Key("OrderID"))
+    .Columns(columns => {
+        columns.AddFor(m => m.OrderID);
+        columns.AddFor(m => m.OrderDate);
+        columns.AddFor(m => m.CustomerName);
+        columns.AddFor(m => m.ShipCountry);
+        columns.AddFor(m => m.ShipCity);
+    })
+    .FilterRow(f => f.Visible(true))
+    .SearchPanel(r => r.Visible(true))
+    .HeaderFilter(f => f.Visible(true))
+)
