@@ -1,3 +1,6 @@
+<button (click)="getFilteredAndSortedData()">
+  Get All Filtered And Sorted Data
+</button>
 <dx-data-grid
   [dataSource]="orders"
   keyExpr="ID"
@@ -6,6 +9,4 @@
   <dxo-header-filter [visible]="true"></dxo-header-filter>
   <dxo-search-panel [visible]="true" ></dxo-search-panel>
 </dx-data-grid>
-<button (click)="getFilteredAndSortedData()">
-  Get All Filtered And Sorted Data
-</button>
+

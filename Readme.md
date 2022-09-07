@@ -15,7 +15,7 @@ To implement this functionality, access a bound Store object and pass [loadOptio
 ## Files to Look At
 
 - **jQuery**
-    - [index.html](jQuery/index.html)
+    - [index.html](jQuery/src/index.html)
 - **Angular**
     - [app.component.html](Angular/src/app/app.component.html)
     - [app.component.ts](Angular/src/app/app.component.ts)
