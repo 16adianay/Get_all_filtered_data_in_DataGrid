@@ -8,7 +8,7 @@
 
 This example demonstrates how to obtain all filtered and sorted rows from the DataGrid component.
 
-To test this functionality, you can filter or sort data in the UI and press "Get All Filtered And Sorted Data". See results in the browser console.
+To test this functionality, you can filter or sort data in the UI and press "Get All Filtered And Sorted Data". See results in the second grid.
 
 To implement this functionality, access a bound Store object and pass [loadOptions](https://js.devexpress.com/Documentation/ApiReference/Data_Layer/DataSource/Methods/#loadOptions) along with the [combined filtering expression](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxDataGrid/Methods/#getCombinedFilterreturnDataField) to its load() method.
 

@@ -7,6 +7,19 @@
     <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/22.1.4/js/dx.all.js"></script>
 	<script type="text/javascript" src="data.js"></script>
 
+    <style>
+      .selected-data {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: rgba(191, 191, 191, 0.15);
+      }
+
+      .selected-data .caption {
+        font-weight: bold;
+        font-size: 115%;
+        margin-right: 4px;
+      }
+    </style>
     <script>
 
 		function getFilteredAndSortedData(){
@@ -20,8 +33,7 @@
 			.load({ filter: filterExpr, sort: loadOptions.sort, group: loadOptions.group })
 			.then((result) => {
 				// your code...
-				console.log(result);
-				alert("check the browser console");
+              $("#secdiv").dxDataGrid("instance").option("dataSource", result)
 			});
 		}
 
@@ -41,16 +53,24 @@
 				  visible: true
 				}
 			});
+            let second_grid = $("#secdiv").dxDataGrid({
+              dataSource: [],
+              keyExpr: 'ID',
+              columnsAutoWidth: true,
+              showBorders: true,
+            }).dxDataGrid("instance")
 		})
     </script>
   </head>
 
   <body>
     <div>
-      <div id="gridContainer"></div>
       <button onclick="getFilteredAndSortedData()">
         Get All Filtered And Sorted Data
       </button>
+      <div id="gridContainer"></div>
+      <br>
+      <div id="secdiv"> </div>
     </div>
   </body>
 </html>
