@@ -32,7 +32,7 @@ import {
   DxFilterRow,
 } from 'devextreme-vue/data-grid';
 import {DxButton} from "devextreme-vue/button"
-import {orders} from "./data";
+import service from "./data.js";
 
 export default {
   components: {
@@ -44,7 +44,7 @@ export default {
   },
   data() {
     return {
-      orders: orders,
+      orders: service.getOrders(),
       dataGridRefName: 'dataGrid',
       ds: []
 

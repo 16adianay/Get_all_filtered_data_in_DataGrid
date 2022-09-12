@@ -4,12 +4,13 @@ import DataGrid, {
   FilterRow, HeaderFilter, SearchPanel,
 } from 'devextreme-react/data-grid';
 
-
 import 'devextreme/dist/css/dx.common.css';
 import 'devextreme/dist/css/dx.light.css';
 
-import {orders}  from "./data";
+import service from "./data.js";
 
+
+const orders = service.getOrders();
 const style = {margin: '30px'};
 
 export default function App() {
