@@ -1,8 +1,7 @@
 <template>
   <div>
-    <button @click="getFilteredAndSortedData">
-      Get All Filtered And Sorted Data
-    </button>
+    <DxButton @click="getFilteredAndSortedData" text="Get All Filtered And Sorted Data">
+    </DxButton>
     <DxDataGrid
         id="gridContainer"
         :ref="dataGridRefName"
@@ -14,6 +13,15 @@
       <DxHeaderFilter :visible="true" />
       <DxSearchPanel :visible="true" />
     </DxDataGrid>
+    <br/>
+    <hr/>
+    <br/>
+    <DxDataGrid
+        :data-source="ds"
+        key-expr="ID"
+        :show-borders="true"
+    >
+    </DxDataGrid>
   </div>
 </template>
 <script>
@@ -23,19 +31,23 @@ import {
   DxSearchPanel,
   DxFilterRow,
 } from 'devextreme-vue/data-grid';
-import service from "./data.js";
+import {DxButton} from "devextreme-vue/button"
+import {orders} from "./data";
 
 export default {
   components: {
     DxDataGrid,
     DxHeaderFilter,
     DxSearchPanel,
-    DxFilterRow
+    DxFilterRow,
+    DxButton
   },
   data() {
     return {
-      orders: service.getOrders(),
-      dataGridRefName: 'dataGrid'
+      orders: orders,
+      dataGridRefName: 'dataGrid',
+      ds: []
+
     };
   },
   methods: {
@@ -51,8 +63,7 @@ export default {
           .load({ filter: filterExpr, sort: loadOptions.sort, group: loadOptions.group })
           .then((result) => {
             // your code...
-            console.log(result);
-            alert("check the browser console");
+            this.ds = result;
           });
     }
   },

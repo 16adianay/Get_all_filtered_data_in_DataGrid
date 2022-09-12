@@ -21,7 +21,7 @@
 			.load({ filter: filterExpr, sort: loadOptions.sort, group: loadOptions.group })
 			.then((result) => {
 				// your code...
-              $("#secdiv").dxDataGrid("instance").option("dataSource", result)
+              $("#gridContainer2").dxDataGrid("instance").option("dataSource", result)
 			});
 		}
 
@@ -41,24 +41,30 @@
 				  visible: true
 				}
 			});
-            let second_grid = $("#secdiv").dxDataGrid({
+            $("#gridContainer2").dxDataGrid({
               dataSource: [],
               keyExpr: 'ID',
               columnsAutoWidth: true,
               showBorders: true,
-            }).dxDataGrid("instance")
+            }).dxDataGrid("instance");
+
+          $("#button").dxButton({
+            text: "Get All Filtered And Sorted Data",
+            onClick: getFilteredAndSortedData
+          });
 		})
     </script>
   </head>
 
   <body>
     <div>
-      <button onclick="getFilteredAndSortedData()">
-        Get All Filtered And Sorted Data
-      </button>
+      <div id="button">
+      </div>
       <div id="gridContainer"></div>
       <br>
-      <div id="secdiv"> </div>
+      <hr/>
+      <br>
+      <div id="gridContainer2"> </div>
     </div>
   </body>
 </html>

@@ -1,17 +1,20 @@
-import React, { useRef } from "react";
+import React, {useRef, useState} from "react";
+import {Button} from "devextreme-react/button";
 import DataGrid, {
   FilterRow, HeaderFilter, SearchPanel,
 } from 'devextreme-react/data-grid';
 
+
 import 'devextreme/dist/css/dx.common.css';
 import 'devextreme/dist/css/dx.light.css';
 
-import service from "./data.js";
+import {orders}  from "./data";
 
-const orders = service.getOrders();
+const style = {margin: '30px'};
 
 export default function App() {
   const dataGridRef = useRef(null);
+  const [ds, setDs] = useState([]);
 
   const getFilteredAndSortedData = React.useCallback(() => {
     const grid = dataGridRef.current.instance;
@@ -24,16 +27,14 @@ export default function App() {
         .load({ filter: filterExpr, sort: loadOptions.sort, group: loadOptions.group })
         .then((result) => {
           // your code...
-          console.log(result);
-          alert("check the browser console");
+          setDs(result)
         });
   }, [dataGridRef]);
 
   return (
+      <div style={style}>
+        <div><Button onClick={getFilteredAndSortedData} text="Get All Filtered And Sorted Data"/></div>
       <div>
-          <button onClick={getFilteredAndSortedData}>
-              Get All Filtered And Sorted Data
-          </button>
         <DataGrid id="gridContainer"
             ref={ dataGridRef }
             dataSource={orders}
@@ -43,6 +44,17 @@ export default function App() {
           <HeaderFilter visible={true} />
           <SearchPanel visible={true} />
         </DataGrid>
+          <br/>
+          <hr/><br/>
+          <DataGrid
+          dataSource={ds}
+          keyExpr='ID'
+          columnsAutoWidth={true}
+          showBorders={true}
+          />
       </div>
+
+
+    </div>
   );
 }

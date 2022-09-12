@@ -1,4 +1,4 @@
-const orders = [{
+export const orders = [{
   ID: 1,
   OrderNumber: 35703,
   OrderDate: '2017/04/10',
