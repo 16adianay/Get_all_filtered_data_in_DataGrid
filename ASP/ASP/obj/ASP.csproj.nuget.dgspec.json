@@ -1,0 +1,87 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\gromova.diana\\Documents\\GitHub\\Get_all_filtered_data_in_DataGrid\\ASP\\ASP\\ASP.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\gromova.diana\\Documents\\GitHub\\Get_all_filtered_data_in_DataGrid\\ASP\\ASP\\ASP.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\gromova.diana\\Documents\\GitHub\\Get_all_filtered_data_in_DataGrid\\ASP\\ASP\\ASP.csproj",
+        "projectName": "ASP",
+        "projectPath": "C:\\Users\\gromova.diana\\Documents\\GitHub\\Get_all_filtered_data_in_DataGrid\\ASP\\ASP\\ASP.csproj",
+        "packagesPath": "C:\\Users\\gromova.diana\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gromova.diana\\Documents\\GitHub\\Get_all_filtered_data_in_DataGrid\\ASP\\ASP\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\DevExpress 22.1\\Components\\Offline Packages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\gromova.diana\\Documents\\GitHub\\Get_all_filtered_data_in_DataGrid\\ASP\\NuGet.Config",
+          "C:\\Users\\gromova.diana\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.1.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\DevExpress 22.1\\Components\\System\\Components\\Packages": {},
+          "C:\\Program Files\\DevExpress 22.1\\DevExtreme\\System\\DevExtreme\\Bin\\AspNetCore": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/VYbeJw6VoS6YIr8D66vBDyAbCOeNK8574xym9CGVF6dzjZ2LSb/api": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "BuildBundlerMinifier": {
+              "target": "Package",
+              "version": "[2.9.406, )"
+            },
+            "DevExtreme.AspNet.Core": {
+              "target": "Package",
+              "version": "[22.1.4, )"
+            },
+            "DevExtreme.AspNet.Data": {
+              "target": "Package",
+              "version": "[2.8.6, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
