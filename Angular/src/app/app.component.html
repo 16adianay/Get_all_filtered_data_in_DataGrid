@@ -1,6 +1,3 @@
-<!--<button (click)="getFilteredAndSortedData()">-->
-<!--  Get All Filtered And Sorted Data-->
-<!--</button>-->
 <dx-button text="Get All Filtered And Sorted Data" (onClick)="getFilteredAndSortedData()"></dx-button>
 <dx-data-grid
   [dataSource]="orders"
@@ -11,13 +8,11 @@
   <dxo-search-panel [visible]="true" ></dxo-search-panel>
 </dx-data-grid>
 <br>
-<hr/>
 <div class="title">Loaded data</div>
 <br>
 <dx-data-grid
   [dataSource]="ds"
   keyExpr="ID"
   [showBorders]="true" >
-
 </dx-data-grid>
 

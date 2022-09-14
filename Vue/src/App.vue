@@ -13,10 +13,9 @@
       <DxHeaderFilter :visible="true" />
       <DxSearchPanel :visible="true" />
     </DxDataGrid>
-    <br>
-    <hr>
+    <br/>
     <div className="title">Loaded data</div>
-    <br>
+    <br/>
     <DxDataGrid
         :data-source="ds"
         key-expr="ID"
