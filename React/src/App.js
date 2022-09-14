@@ -45,8 +45,10 @@ export default function App() {
           <HeaderFilter visible={true} />
           <SearchPanel visible={true} />
         </DataGrid>
-          <br/>
-          <hr/><br/>
+          <br>
+          <hr>
+        <div className="title">Loaded data</div>
+        <br>
           <DataGrid
           dataSource={ds}
           keyExpr='ID'

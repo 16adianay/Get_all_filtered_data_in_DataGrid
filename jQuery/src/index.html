@@ -7,55 +7,15 @@
     <script type="text/javascript" src="/node_modules/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="/node_modules/devextreme/dist/js/dx.all.js"></script>
 	<script type="text/javascript" src="data.js"></script>
-
-    <script>
-
-		function getFilteredAndSortedData(){
-		  const grid = $('#gridContainer').dxDataGrid("instance");
-		  const filterExpr = grid.getCombinedFilter(true);
-		  const dataSource = grid.getDataSource();
-		  const loadOptions = dataSource.loadOptions();
-
-		  dataSource
-			.store()
-			.load({ filter: filterExpr, sort: loadOptions.sort, group: loadOptions.group })
-			.then((result) => {
-				// your code...
-              $("#gridContainer2").dxDataGrid("instance").option("dataSource", result)
-			});
-		}
-
-		$(() => {
-			$('#gridContainer').dxDataGrid({
-				dataSource: orders,
-				keyExpr: 'ID',
-				columnsAutoWidth: true,
-				showBorders: true,
-				filterRow: {
-				  visible: true
-				},
-				searchPanel: {
-				  visible: true
-				},
-				headerFilter: {
-				  visible: true
-				}
-			});
-            $("#gridContainer2").dxDataGrid({
-              dataSource: [],
-              keyExpr: 'ID',
-              columnsAutoWidth: true,
-              showBorders: true,
-            }).dxDataGrid("instance");
-
-          $("#button").dxButton({
-            text: "Get All Filtered And Sorted Data",
-            onClick: getFilteredAndSortedData
-          });
-		})
-    </script>
+    <style>
+      .title {
+        width: 100%;
+        text-align: center;
+        font-family: "Helvetica Neue","Segoe UI",helvetica,verdana,sans-serif;
+        text-decoration: underline;
+      }
+    </style>
   </head>
-
   <body>
     <div>
       <div id="button">
@@ -63,8 +23,55 @@
       <div id="gridContainer"></div>
       <br>
       <hr/>
+      <div class="title">Loaded data</div>
       <br>
       <div id="gridContainer2"> </div>
     </div>
+    <script>
+
+      function getFilteredAndSortedData(){
+        const grid = $('#gridContainer').dxDataGrid("instance");
+        const filterExpr = grid.getCombinedFilter(true);
+        const dataSource = grid.getDataSource();
+        const loadOptions = dataSource.loadOptions();
+
+        dataSource
+                .store()
+                .load({ filter: filterExpr, sort: loadOptions.sort, group: loadOptions.group })
+                .then((result) => {
+                  // your code...
+                  $("#gridContainer2").dxDataGrid("instance").option("dataSource", result)
+                });
+      }
+
+      $(() => {
+        $('#gridContainer').dxDataGrid({
+          dataSource: orders,
+          keyExpr: 'ID',
+          columnsAutoWidth: true,
+          showBorders: true,
+          filterRow: {
+            visible: true
+          },
+          searchPanel: {
+            visible: true
+          },
+          headerFilter: {
+            visible: true
+          }
+        });
+        $("#gridContainer2").dxDataGrid({
+          dataSource: [],
+          keyExpr: 'ID',
+          columnsAutoWidth: true,
+          showBorders: true,
+        }).dxDataGrid("instance");
+
+        $("#button").dxButton({
+          text: "Get All Filtered And Sorted Data",
+          onClick: getFilteredAndSortedData
+        });
+      })
+    </script>
   </body>
 </html>

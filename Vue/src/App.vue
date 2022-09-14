@@ -13,9 +13,10 @@
       <DxHeaderFilter :visible="true" />
       <DxSearchPanel :visible="true" />
     </DxDataGrid>
-    <br/>
-    <hr/>
-    <br/>
+    <br>
+    <hr>
+    <div className="title">Loaded data</div>
+    <br>
     <DxDataGrid
         :data-source="ds"
         key-expr="ID"
@@ -74,3 +75,11 @@ export default {
   }
 };
 </script>
+<style >
+.title {
+  width: 100%;
+  text-align: center;
+  font-family: "Helvetica Neue","Segoe UI",helvetica,verdana,sans-serif;
+  text-decoration: underline;
+}
+</style>
