@@ -9,7 +9,6 @@
 }
 </style>
 
-<h2>Home</h2>
 
 @(Html.DevExtreme().Button().Text("Get All Filtered And Sorted Data").OnClick("getFilteredAndSortedData"))
 
@@ -32,7 +31,6 @@
 <br />
 @(Html.DevExtreme().DataGrid<SampleOrder>().ID("gridContainer2")
     .ShowBorders(true)
-    .DataSource(new JS("[]"))
     .Columns(columns => {
         columns.AddFor(m => m.OrderID);
         columns.AddFor(m => m.OrderDate);
@@ -42,7 +40,6 @@
     })
 )
 <script>;
-let ds = [];
     function getFilteredAndSortedData(){
 		  const grid = $('#gridContainer').dxDataGrid("instance");
 		  const filterExpr = grid.getCombinedFilter(true);
